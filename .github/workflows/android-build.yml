@@ -29,12 +29,9 @@ jobs:
           npm install
           npm run build
 
-      - name: Install Capacitor Core and Plugins
+      - name: Install Capacitor and Sync
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/app @capacitor/android
-
-      - name: Sync Capacitor
-        run: |
           npx cap sync android
 
       - name: Build APK
