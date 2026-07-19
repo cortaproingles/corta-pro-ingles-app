@@ -29,16 +29,16 @@ jobs:
           npm install
           npm run build
 
+      - name: Install Dependencies and Clean Build
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+          npm run build
+
       - name: Install Capacitor and Sync
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/app @capacitor/android
           npx cap sync android
-
-      - name: Build APK
-        run: |
-          cd android
-          chmod +x gradlew
-          ./gradlew assembleDebug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
