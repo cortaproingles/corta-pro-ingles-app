@@ -34,7 +34,7 @@ jobs:
 
       - name: Sync and Add Android Platform
         run: |
-          npm install @capacitor/core @capacitor/cli
+          npm install @capacitor/core @capacitor/cli @capacitor/app
           npx cap init "Corta pra Ingles" "com.cortaproingles.app" --web-dir=dist
           npm install @capacitor/android
           npx cap add android

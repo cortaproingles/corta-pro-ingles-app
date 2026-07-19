@@ -2,6 +2,16 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
+import { App as CapacitorApp } from '@capacitor/app';
+
+// Dentro do seu componente principal (ou em um useEffect):
+CapacitorApp.addListener('backButton', ({ canGoBack }) => {
+  if (canGoBack) {
+    window.history.back(); // Volta uma página/comando interno do app
+  } else {
+    CapacitorApp.exitApp(); // Se não tiver mais para onde voltar, aí sim fecha o app
+  }
+});
 
 import React, { useEffect, useRef, useState } from "react";
 import { 
