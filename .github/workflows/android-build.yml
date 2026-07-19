@@ -29,12 +29,13 @@ jobs:
           npm install
           npm run build
 
-      - name: Sync Capacitor Platform
+      - name: Install Capacitor Core and Plugins
         run: |
-          npm install @capacitor/core @capacitor/cli @capacitor/app
-          npx cap init "Corta pra Ingles" "com.cortaproingles.app" --web-dir=dist
-          npm install @capacitor/android
-          npx cap sync
+          npm install @capacitor/core @capacitor/cli @capacitor/app @capacitor/android
+
+      - name: Sync Capacitor
+        run: |
+          npx cap sync android
 
       - name: Build APK
         run: |
