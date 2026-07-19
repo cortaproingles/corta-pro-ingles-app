@@ -33,7 +33,9 @@ jobs:
           java-version: '21'
 
       - name: Sync Capacitor
-        run: npx cap sync
+        run: |
+          npm install @capacitor/core @capacitor/cli
+          npx cap sync
 
       - name: Build APK
         run: |
