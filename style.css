@@ -1,0 +1,496 @@
+/* ==========================================================================
+   CORTA INGLÊS - STYLE.CSS
+   --------------------------------------------------------------------------
+   Folha de estilos completa para o aplicativo de Shadowing.
+   Implementa uma identidade visual premium em Modo Escuro (Dark Mode)
+   utilizando tons de slate, violeta neon e verde esmeralda para progresso.
+   ========================================================================== */
+
+/* 1. VARIÁVEIS GLOBAIS E TEMA */
+:root {
+  --color-bg-main: #020617;       /* slate-950 */
+  --color-bg-card: #0f172a;       /* slate-900 */
+  --color-bg-inner: #020617;      /* slate-950 */
+  --color-border: #1e293b;         /* slate-800 */
+  --color-border-hover: #334155;   /* slate-700 */
+  
+  /* Cores Temáticas de Destaque */
+  --color-primary: #7c3aed;        /* violet-600 */
+  --color-primary-hover: #6d28d9;  /* violet-700 */
+  --color-primary-glow: rgba(124, 58, 237, 0.35);
+  
+  --color-success: #10b981;        /* emerald-500 */
+  --color-success-bg: rgba(16, 185, 129, 0.15);
+  --color-success-glow: rgba(16, 185, 129, 0.25);
+  
+  --color-text-main: #f8fafc;      /* slate-50 */
+  --color-text-muted: #94a3b8;     /* slate-400 */
+  --color-text-darker: #64748b;    /* slate-500 */
+}
+
+/* Reset básico e fontes */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   2. CLASSE DE NAVEGAÇÃO DE TELAS (Obrigatória)
+   ========================================================================== */
+.escondido {
+  display: none !important;
+}
+
+/* ==========================================================================
+   3. ESTILIZAÇÃO DO CONTAINER DO APLICATIVO (Estilo Celular no Desktop)
+   ========================================================================== */
+.app-wrapper {
+  width: 100%;
+  max-width: 440px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-col: column;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-height: 800px) and (min-width: 640px) {
+  .app-wrapper {
+    height: 850px;
+    border-radius: 24px;
+    margin: 40px auto;
+  }
+}
+
+/* ==========================================================================
+   4. DESIGN DA FRONT PAGE (#front-page)
+   ========================================================================== */
+#front-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+  height: 100%;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+}
+
+.logo-container {
+  margin-bottom: 32px;
+}
+
+.logo-icon {
+  background-color: rgba(124, 58, 237, 0.15);
+  border: 2px solid var(--color-primary);
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  color: #a78bfa; /* violet-400 */
+  box-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.front-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+}
+
+.front-subtitle {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  max-width: 280px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+
+/* Botão Principal Entrar na Biblioteca */
+.btn-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px var(--color-primary-glow);
+}
+
+.btn-principal:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+.btn-principal:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   5. DESIGN DA TELA DE BIBLIOTECA (#tela-biblioteca)
+   ========================================================================== */
+
+/* Abas de Categoria */
+.container-abas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 16px;
+  background-color: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.btn-categoria {
+  background-color: var(--color-bg-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 10px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-categoria:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-border-hover);
+}
+
+/* Aba Selecionada / Ativa */
+.btn-categoria.aba-ativa {
+  background-color: rgba(124, 58, 237, 0.12);
+  border-color: var(--color-primary);
+  color: #c084fc; /* purple-400 */
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.08);
+}
+
+/* Caixa de Seleção para Playlists de Séries */
+.container-playlist-selector {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.playlist-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-darker);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.seletor-dropdown {
+  width: 100%;
+  background-color: var(--color-bg-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.seletor-dropdown:hover, .seletor-dropdown:focus {
+  border-color: var(--color-primary);
+  color: var(--color-text-main);
+}
+
+/* Grade de Cards de Vídeo */
+.grade-videos-container {
+  flex-1: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.grade-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card de Vídeo Individual */
+.card-video {
+  background-color: var(--color-bg-inner);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-video:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.04);
+}
+
+.card-thumb-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.card-thumb {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card-video:hover .card-thumb {
+  transform: scale(1.03);
+}
+
+.tag-categoria {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+.card-descricao {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.card-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: var(--color-text-darker);
+  border-top: 1px solid var(--color-border);
+  padding-top: 10px;
+}
+
+.card-conclusao {
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   6. AJUSTES NA TELA DE TREINO (#tela-treino)
+   ========================================================================== */
+
+/* Barra de Progresso do Topo */
+.container-barra-progresso {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.progresso-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.progresso-porcentagem {
+  font-family: monospace;
+  font-weight: 700;
+  color: #a78bfa; /* violet-400 */
+}
+
+.barra-progresso-background {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-bg-inner);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.barra-progresso-preenchimento {
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+/* Frase de Treino Row */
+.frase-row {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.frase-row:hover {
+  border-color: var(--color-border-hover);
+}
+
+.frase-conteudo {
+  flex-1: 1;
+}
+
+.frase-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.frase-numero {
+  font-size: 9px;
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.frase-tempo {
+  font-size: 9px;
+  font-family: monospace;
+  color: var(--color-text-darker);
+}
+
+.frase-ingles {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+.frase-portugues {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Área de Ações das Frases */
+.frase-acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Botões de Ação de Áudio e Check */
+.btn-acao {
+  background-color: var(--color-bg-inner);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-darker);
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-acao:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-main);
+}
+
+/* Botão de Check Estilizado (Ativo/Concluído) */
+.botao-check {
+  color: var(--color-text-darker);
+  background-color: var(--color-bg-inner);
+  border: 1px solid var(--color-border);
+}
+
+.botao-check:hover {
+  color: #ffffff;
+  border-color: var(--color-border-hover);
+}
+
+/* Estado Ativo/Dominado (.checked) do botão de Check */
+.botao-check.checked {
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success);
+  color: var(--color-success);
+  box-shadow: 0 0 12px var(--color-success-glow);
+}
+
+.botao-check.checked:hover {
+  background-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+}
