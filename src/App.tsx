@@ -2,7 +2,29 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
+ import { useState, useEffect } from "react";
+ import { App as CapacitorApp } from "@capacitor/app";
+ 
 import { App as CapacitorApp } from '@capacitor/app';
+  useEffect(() => {
+    const listener = CapacitorApp.addListener("backButton", () => {
+      if (currentScreen === "training") {
+        setCurrentScreen("library");
+        return;
+      }
+
+      if (currentScreen === "library") {
+        setCurrentScreen("front-page");
+        return;
+      }
+
+      CapacitorApp.exitApp();
+    });
+
+    return () => {
+      listener.then(l => l.remove());
+    };
+  }, [currentScreen]);
 
 // Dentro do seu componente principal (ou em um useEffect):
 CapacitorApp.addListener('backButton', ({ canGoBack }) => {
