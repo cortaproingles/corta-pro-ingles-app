@@ -32,9 +32,12 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Sync Capacitor
+      - name: Sync and Add Android Platform
         run: |
           npm install @capacitor/core @capacitor/cli
+          npx cap init "Corta pra Ingles" "com.cortaproingles.app" --web-dir=dist
+          npm install @capacitor/android
+          npx cap add android
           npx cap sync
 
       - name: Build APK
